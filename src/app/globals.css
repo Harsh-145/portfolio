@@ -17,7 +17,7 @@
 }
 
 /* Light theme variables (for future use) */
-[data-theme='light'] {
+.light {
   --background: #ffffff;
   --foreground: #09090b;
   --card: #f4f4f5;
@@ -30,6 +30,11 @@
   --muted-foreground: #71717a;
   --border: rgba(0, 0, 0, 0.08);
   --ring: #2563eb;
+}
+
+html {
+  background: var(--background);
+  color: var(--foreground);
 }
 
 body {
