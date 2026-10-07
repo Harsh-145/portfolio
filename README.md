@@ -1,114 +1,60 @@
 # Harsh Yadav — Portfolio
 
-A premium, production-ready personal portfolio website built with **Next.js 16**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
+A recruiter-facing portfolio built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4. It presents five selected projects, two supporting projects, internship experience, education, and skills. Content is prerendered; the homepage refreshes its academic status daily. Only the mobile navigation needs client-side state.
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss)
+## Run locally
 
-## ✨ Features
+Requires Node.js 22 or later and npm (`.nvmrc` selects Node 22). Install the locked dependencies, then run the checks:
 
-- **Dark Bento Grid Design** — Modern, high-density layout inspired by Linear and Vercel
-- **Fully Static (SSG)** — Pre-rendered at build time for instant page loads
-- **Content-UI Separation** — All personal data lives in `src/content/` files, zero hardcoding
-- **Framer Motion Animations** — Smooth scroll-triggered reveals and micro-interactions
-- **Responsive Design** — Mobile-first layout with adaptive navigation
-- **SEO Optimized** — Meta tags, Open Graph, structured semantic HTML
-- **Accessible** — WCAG AA compliant, keyboard navigable, focus-visible styles
-- **Custom Scrollbar & Selection** — Premium dark theme polish throughout
-
-## 🚀 Quick Start
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
-```
-
-The dev server runs at [http://localhost:3000](http://localhost:3000).
-
-## 📁 Project Structure
-
-```
-src/
-├── app/                    # Next.js App Router pages
-│   ├── layout.tsx          # Root layout with fonts, SEO, header/footer
-│   ├── page.tsx            # Home page assembling all sections
-│   └── projects/[slug]/    # Dynamic project detail pages
-├── components/
-│   ├── layout/             # Header & Footer
-│   ├── sections/           # Hero, BentoGrid, Projects, Experience, Skills, Education, Contact
-│   ├── icons.tsx           # Custom SVG brand icons (GitHub, LinkedIn)
-│   └── theme-provider.tsx  # Dark/Light theme wrapper
-├── content/                # 📝 EDIT THESE to update your portfolio
-│   ├── profile.ts          # Name, headline, about, contact info
-│   ├── projects.ts         # Project entries with descriptions & links
-│   ├── experience.ts       # Work experience with highlights
-│   ├── education.ts        # Degrees and institutions
-│   ├── certifications.ts   # Certifications and training
-│   ├── skills.ts           # Technical skills by category
-│   ├── social.ts           # Social links (GitHub, LinkedIn, Email)
-│   ├── navigation.ts       # Header navigation items
-│   ├── seo.ts              # SEO metadata configuration
-│   ├── site.ts             # Site-wide settings
-│   └── theme.ts            # Theme colors and fonts
-├── lib/
-│   ├── fonts.ts            # Google Fonts (Inter + JetBrains Mono)
-│   └── utils.ts            # Utility functions (cn)
-└── types/
-    └── index.ts            # TypeScript type definitions
-```
-
-## ✏️ Customizing Your Portfolio
-
-All your personal data lives in the `src/content/` directory. To update:
-
-1. **Profile** → Edit `src/content/profile.ts` (name, headline, about, contact)
-2. **Projects** → Edit `src/content/projects.ts` (add/remove/reorder projects)
-3. **Experience** → Edit `src/content/experience.ts` (work history)
-4. **Skills** → Edit `src/content/skills.ts` (add new skills or categories)
-5. **Resume** → Replace `public/resume/Harsh_Yadav_Resume.docx` with your file
-
-No component code changes needed — just edit the content files and rebuild.
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 16 (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS 4 |
-| Animation | Framer Motion |
-| Icons | Lucide React + Custom SVGs |
-| Theme | next-themes |
-| Fonts | Inter + JetBrains Mono (next/font) |
-| Deploy | Vercel (recommended) |
-
-## 🌐 Deployment
-
-### Vercel (Recommended)
-
-1. Push to GitHub
-2. Import repository on [vercel.com](https://vercel.com)
-3. Deploy — zero configuration needed
-
-### Other Platforms
-
-```bash
+```sh
+npm ci
+npm run lint
+npm run typecheck
+npm run test:academic
 npm run build
 npm start
 ```
 
-The `out/` directory contains the static export if needed.
+With the production server running on port 3100, `npm test` checks HTTP status, internal routes, metadata, structured data, security headers, crawler files, assets, and legacy redirects. Pass a different origin with `npm test -- http://localhost:3000`.
 
-## 📄 License
+For development, run `npm run dev`. The default URL is http://localhost:3000.
 
-MIT — feel free to use this as a template for your own portfolio.
+## Content & evidence
+
+- `src/content/` holds personal details, projects, skills, navigation, and metadata.
+- Each project includes implementation highlights, evaluation context, limitations, and links to supporting code.
+- `docs/CONTENT_AUDIT.md` records the repository-by-repository selection and factual corrections.
+- The homepage prioritizes engineering focus and project links. The supplied portrait is preserved as a local asset, without displaying it on the site.
+- `public/resume/Harsh_Yadav_Resume.pdf` is a single-column, text-based resume aligned with the reviewed project evidence.
+- `src/app/projects/[slug]/page.tsx` generates seven static case studies.
+- `src/app/robots.ts`, `sitemap.ts`, and `opengraph-image.tsx` supply crawler and sharing assets.
+
+No user counts, business impact, benchmark superiority, ATS score, or model accuracy percentage is claimed. The regression score is labeled repository-reported. See the case studies for its evaluation limitations.
+
+## Deploy
+
+The project uses Next.js server output, including image optimization and an Open Graph image route. It does **not** generate an `out/` static export. Use a Next.js-compatible host with the supported adapter (for example Vercel or Netlify), or run `npm run build` followed by `npm start` on a Node server.
+
+Set `SITE_URL` to the exact public origin **before the build**. It defaults to `https://harshaydv.netlify.app`, the address listed in the supplied resume. Canonicals, structured data, and sitemap entries use this origin. Do not point production metadata at a preview deployment. A host should configure preview deployments with an `X-Robots-Tag: noindex` header.
+
+The Google font files are downloaded at build time through `next/font` and served locally. Production visitors do not need a Google Fonts connection. A first build requires network access for those font downloads.
+
+Publishing a new build is a separate action. The local audit does not establish live production performance or field Core Web Vitals.
+
+## Checks
+
+`npm run lint`, `npm run typecheck`, `npm run test:academic`, and `npm run build` are required before shipping. Browser checks should cover the homepage, all project pages, unknown-route 404s, mobile navigation (including Escape and focus return), local assets, metadata, JSON-LD, overflow at narrow widths, no-JavaScript content visibility, and reduced motion. Use Lighthouse against the production server and axe for automated accessibility checks; manually check keyboard navigation and readable layouts as well.
+
+## Maintaining the resume
+
+The downloadable PDF is a reviewed snapshot, dated 7 October 2026. Update it when changing education, experience, or project content. Keep it text-based, with a single reading order and real links. The campus-format Word document is retained as source in the repository at `docs/source/Harsh_Yadav_Resume.docx`; it is not served as a public download.
+
+## Automatic academic-term updates
+
+The homepage checks GTU's official academic-calendar index and its linked official PDFs, with a daily server cache and daily homepage revalidation. It selects valid BE Semester 7/8 rows for the 2026–27 final-year cohort. Dates use Asia/Kolkata; a future published term takes effect only on its start date. The current verified snapshot is Semester 7 starting 3 July 2026. The 10 June amendment concerns Semester 5 and does not change the Semester 7 row.
+
+Semester 8 dates were not published in the reviewed index on 7 October 2026. No January start date is guessed. Newer valid amendments take priority. Only GTU's calendar index and the official circular bucket are fetched, with redirect, byte, page, and date-validation limits. This adds no browser-side polling or PDF parsing.
+
+A Next.js server/hosting adapter with ISR and outbound HTTPS is required. Refresh is demand-driven: the first visit after the daily cache interval triggers revalidation, so a visitor can briefly see the previous cached page. If GTU is unavailable or changes its PDF format, the reviewed local snapshot keeps the page usable. After the known term's tentative result date, the fallback shows “BE · 2027 cohort” instead of a stale current-semester or unverified graduation claim. Review this integration if GTU replaces its archived index or stops updating it.
+
+Calendar progression describes the scheduled academic term, not proof of individual enrollment, exam results, or degree completion. CGPA remains 8.37/10 through Semester 6 until the user supplies a new result. The downloadable resume is a dated snapshot and does not automatically regenerate. `npm run test:academic` checks actual GTU OCR text, competing program rows, amendments, offline/malformed sources, India-midnight transitions, future starts, and expired status; future dates in tests are explicitly synthetic.

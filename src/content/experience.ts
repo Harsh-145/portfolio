@@ -1,16 +1,15 @@
-import type { Experience } from '@/types';
-
+import type { Experience } from "@/types";
 export const experience: Experience[] = [
   {
-    role: 'Jr. Data Analytics Intern',
-    company: 'HN Techno',
-    startDate: 'Jul 2026',
-    endDate: 'Present', // Assumption as of July 2026
+    role: "Junior Data Analytics Intern",
+    company: "HN Techno",
+    startDate: "03 July 2026",
+    endDate: "17 July 2026",
     highlights: [
-      'Built and deployed MediInsurance, a full-stack ML web app predicting medical insurance costs',
-      'Engineered end-to-end data pipeline (ingestion, cleaning, outlier handling, encoding, scaling) feeding a Linear Regression model, evaluated with MAE, MSE, RMSE, R²',
-      'Developed FastAPI + SQLAlchemy backend with JWT auth and RBAC',
-      'Built React (Vite) analytics dashboard with Recharts (BMI-vs-charges scatter, charge-distribution histogram, day-wise activity charts)'
-    ]
-  }
+      "Built data pipelines for ingestion, cleaning, IQR-based outlier handling, categorical encoding, and feature scaling.",
+      "Trained and evaluated a Linear Regression model using MAE, MSE, RMSE, and R².",
+      "Developed REST APIs with FastAPI, JWT authentication, and role-based access control.",
+      "Created interactive dashboards for data visualization and reporting.",
+    ],
+  },
 ];

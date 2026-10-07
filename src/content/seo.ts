@@ -1,7 +1,20 @@
-import type { SEOConfig } from '@/types';
-
+import type { SEOConfig } from "@/types";
 export const seoConfig: SEOConfig = {
-  title: 'Harsh Baljeetsingh Yadav | Portfolio',
-  description: 'Portfolio of Harsh Baljeetsingh Yadav, Computer Science Engineer specializing in ML & Data Analytics.',
-  keywords: ['Harsh Baljeetsingh Yadav', 'Machine Learning', 'Data Analytics', 'FastAPI', 'React', 'Python Developer', 'Portfolio'],
+  title: "Harsh Yadav | Software Developer & ML Portfolio",
+  description:
+    "Harsh Baljeetsingh Yadav is a Computer Science & Engineering student graduating in 2027. Explore Python, FastAPI, React, Java, and computer vision projects.",
+  keywords: [
+    "Harsh Yadav",
+    "Harsh Baljeetsingh Yadav",
+    "Software Developer",
+    "Machine Learning",
+    "Data Analytics",
+    "Python",
+    "FastAPI",
+    "React",
+    "Java",
+    "Computer Science",
+    "Internship",
+    "Gujarat",
+  ],
 };

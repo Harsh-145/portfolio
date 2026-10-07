@@ -1,24 +1,46 @@
-import type { SkillCategory } from '@/types';
-
+import type { SkillCategory } from "@/types";
 export const skills: SkillCategory[] = [
   {
-    category: 'Languages',
-    skills: ['Python', 'SQL', 'Java', 'JavaScript', 'HTML', 'CSS', 'PHP']
+    category: "Languages",
+    skills: ["Python", "Java", "JavaScript", "TypeScript", "SQL", "PHP"],
   },
   {
-    category: 'Data & ML',
-    skills: ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'Linear Regression']
+    category: "Data & machine learning",
+    skills: [
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Linear Regression",
+      "OpenCV",
+      "Matplotlib",
+      "Scikit-image",
+    ],
   },
   {
-    category: 'Web & Frameworks',
-    skills: ['React', 'Vite', 'FastAPI', 'SQLAlchemy']
+    category: "Web & APIs",
+    skills: [
+      "React",
+      "Next.js",
+      "FastAPI",
+      "Node.js",
+      "Express",
+      "Java Servlets",
+      "HTML",
+      "CSS",
+    ],
   },
   {
-    category: 'Tools',
-    skills: ['Git', 'GitHub', 'Gradio', 'Google Sheets/Docs']
+    category: "Data storage",
+    skills: [
+      "MySQL",
+      "SQLite",
+      "SQLAlchemy",
+      "JDBC",
+      "Firebase Realtime Database",
+    ],
   },
   {
-    category: 'Databases',
-    skills: ['MySQL', 'SQLite']
-  }
+    category: "Development tools",
+    skills: ["Git", "GitHub", "Vite", "Maven", "Netlify"],
+  },
 ];
